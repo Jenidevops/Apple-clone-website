@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <!-- <link rel="stylesheet" href="reset.css"> buat reset css -->
+    <link rel="shortcut icon" type="image/jpg" href="./img/apple-logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+ <style>
+ /* Full-page black hero section */
+.event-hero {
+  background-color: black;
+  color: white;
+  min-height: 100vh; /* full height of screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Logo centered + big size */
+.hero-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.hero-logo img {
+  width: 300px; /* 🔥 Bigger size for animation */
+  max-width: 80%;
+  animation: glowFire 4s infinite alternate ease-in-out;
+}
+
+/* Fire-like glow animation */
+@keyframes glowFire {
+  0% {
+    filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.7))
+            drop-shadow(0 0 30px rgba(255, 80, 0, 0.6));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(0, 150, 255, 1))
+            drop-shadow(0 0 60px rgba(255, 120, 0, 0.8));
+    transform: scale(1.1);
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(0, 102, 255, 0.7))
+            drop-shadow(0 0 30px rgba(255, 80, 0, 0.6));
+    transform: scale(1);
+  }
+}
+
+/* Event text styling */
+.event-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #0af; /* Apple-like blue title */
+}
+
+.event-content p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* CTA Buttons */
+.event-cta a {
+  margin: 0 10px;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.event-cta .watch-btn {
+  background: #0af;
+  color: white;
+}
+
+.event-cta .watch-btn:hover {
+  background: white;
+  color: #0af;
+}
+
+.event-cta .back-btn {
+  background: transparent;
+  border: 2px solid #0af;
+  color: #0af;
+}
+
+.event-cta .back-btn:hover {
+  background: #0af;
+  color: white;
+}
+
+  </style>
+
+</head>
+
+<body>
+    <!--header-->
+    <header>
+        <div class="header-wrapper">
+            <div class="hamburger hp-viewport">
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+            <ul class="header-list">
+
+                <li class="header-content hp-viewport apple-header"><a href="https://www.apple.com/"><img class="logo" src="./img/apple-logo.png"></a></li>
+
+                <li class="header-content hp-viewport-hide"><a href="https://www.apple.com/mac/">Mac</a></li>
+                <li class="header-content hp-viewport-hide"><a href="https://www.apple.com/ipad/">iPad</a></li>
+                <li class="header-content hp-viewport-hide"><a href="https://www.apple.com/iphone/">iPhone</a></li>
+                <li class="header-content hp-viewport-hide"><a href="https://www.apple.com/watch/">Watch</a></li>
+                <li class="header-content hp-viewport-hide"><a href="https://www.apple.com/tv/">TV</a></li>
+                <li class="header-content hp-viewport-hide"><a href="https://www.apple.com/music/">Music</a></li>
+                <li class="header-content hp-viewport-hide"><a href="https://support.apple.com/">Support</a></li>
+                <!-- input search -->
+
+                <li class="header-content hp-viewport-hide fa-searchs"><a href="#" class="fas fa-search"></a></li>
+                <!-- <input class="search" placeholder="search" type="search" name=""> -->
+                <!-- <li><a href="#" class="search"><i class="fas fa-search"></i></a></li>  -->
+                <li>
+                    <div class="search search-container">
+                        <div class="search-icon" id="searchIcon"><i class="fas fa-search"></i></div>
+                        <div class="search-dropdown" id="searchDropdown">
+                            <input type="text" placeholder="Search...">
+                            <button>Search</button>
+                        </div>
+                    </div>
+                </li>
+                <!--input search -->
+
+                <li class="header-content hp-viewport header-shoping"><a href="https://www.apple.com/us/shop/goto/bag" class="fas fa-shopping-bag"></a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <button class="close-btn">&times;</button>
+        </div>
+        <ul class="mobile-nav">
+            <li><a href="https://www.apple.com/"><img class="logo" src="./img/apple-logo.png"></a></li>
+            <li><a href="https://www.apple.com/mac/">Mac</a></li>
+            <li><a href="https://www.apple.com/ipad/">iPad</a></li>
+            <li><a href="https://www.apple.com/iphone/">iPhone</a></li>
+            <li><a href="https://www.apple.com/watch/">Watch</a></li>
+            <li><a href="https://www.apple.com/tv/">TV</a></li>
+            <li><a href="https://www.apple.com/music/">Music</a></li>
+            <li><a href="https://support.apple.com/">Support</a></li>
+            <li><a href="https://www.apple.com/us/shop/goto/bag" class="fas fa-shopping-bag"></a></li>
+        </ul>
+    </div>
+    <!-- <nav>
+        <ul>
+            <li><a href="#"><i class="fab fa-apple"></i></a></li>
+            <li><a href="#">Mac</a></li>  
+            <li><a href="#">iPad</a></li>  
+            <li><a href="#">iPhone</a></li>  
+            <li><a href="#">Watch</a></li>  
+            <li><a href="#">TV</a></li>  
+            <li><a href="#">Music</a></li>  
+            <li><a href="#">Service</a></li>  
+            <li><a href="#"><i class="fas fa-search"></i></a></li>  
+            <li><a href="#"><i class="fas fa-shopping-bag"></i></a></li>  
+        </ul>
+    </nav> -->
+    <!-- header -->
+
+  <!-- APPLE EVENT PAGE -->
+  <section class="event-hero">
+    <div class="hero-logo">
+    <img src="img/heroimage.png" alt="Apple Logo">
+  </div>
+    <div class="event-content">
+      <h1>Apple Special Event</h1>
+      <p>
+        Get to know the next generation of iPhone — iPhone 17 Pro, iPhone 17,
+        and the all-new iPhone Air. Explore the new AirPods Pro 3 featuring
+        the world’s best in-ear Active Noise Cancellation. And discover the
+        latest Apple Watch family, which provides more powerful health insights
+        than ever.
+      </p>
+
+      <div class="event-cta">
+        <a href="https://www.apple.com/apple-events/" class="watch-btn">▶ Watch the Event</a>
+        <a href="index.html" class="back-btn">← Back to Home</a>
+      </div>
+    </div>
+  </section>
+<script src="script.js"></script>
+</body>
+</html>

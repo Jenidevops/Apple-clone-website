@@ -1,0 +1,596 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+ul, li, ol {
+    list-style: none;
+    }
+
+    a {
+    text-decoration: none;
+}
+body{
+    margin: 0 auto;
+    font-family: 'Roboto', 'Helvetica', Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  
+}
+
+/* Prevent background scrolling when menu open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+
+main {
+    flex: 1; /* pushes footer down */
+}
+
+/* css header */
+header {
+    position: fixed;
+    top:0;
+    height: 52px;
+    width: 100%;
+    color: rgba(255, 253, 253, 0.87);
+    background-color: rgba(0,0,0,0.92);
+    z-index: 10;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.92);
+    width: 100%;
+    position: fixed;
+    color: rgba(255, 253, 253, 0.87); */
+    /* backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); */
+  }
+
+
+.header-wrapper {
+
+    /* text-align: center;
+    line-height: 50px;
+    font-size: 30px; */
+  }
+
+.header-list{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0;
+    /* margin-left:50px; */
+    
+
+}
+.header-list li{
+    margin: 0;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+}
+.header-list li a{
+    text-decoration: none;
+    color: #f5f5f7;
+}
+.header-list a {
+    
+  /* margin-left:50px; 
+  font-size:20px;
+  margin-bottom:10px;   
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+  float: left;
+  transition: all 0.5s;  */
+
+}
+.logo{
+    width: 25px;
+    /* width: 30px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    float:left;
+    margin-left:30px; */
+}
+span{
+    /* margin-left:20px;
+    float:left; */
+}
+
+
+.search {
+    margin: 10px 30px 10px 0;
+    background-color: rgba(0, 0, 0, 0.92);
+    border-radius: 10px;
+    position: relative; /* important for dropdown positioning */
+}
+
+/* Search Icon Button */
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0; /* dropdown aligns to right like Apple */
+    width: 300px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    padding: 10px 0;
+    z-index: 999;
+}
+
+.search-dropdown input {
+    width: 90%;
+    margin: 0 auto 10px auto;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+}
+
+#searchResults {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#searchResults li {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+#searchResults li:hover {
+    background-color: #f5f5f5;
+}
+
+#searchResults mark {
+    background-color: transparent; /* No yellow */
+    font-weight: bold;
+    color: #000; /* Highlight text black */
+}
+
+/* hamburger menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    top: 18px;
+    left: 30px;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #f5f5f7;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* mobile menu */
+/* Mobile menu overrides to show all links */
+.mobile-menu .mobile-nav li {
+    width: 100%;        /* full width for links */
+    height: auto;       /* let height expand automatically */
+    margin: 15px 0;     /* spacing between links */
+    display: block;     /* ensure vertical stacking */
+}
+
+.mobile-menu .mobile-nav a {
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+}
+
+.mobile-menu .mobile-nav a.fas.fa-shopping-bag {
+    font-size: 22px;  /* slightly bigger for bag icon */
+}
+
+.mobile-menu-logo {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.mobile-menu-logo .logo {
+    width: 40px; /* bigger logo for mobile */
+}
+
+/* Close button stays top-right */
+.mobile-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Smooth slide-in for mobile menu */
+.mobile-menu {
+    position: fixed;       /* stays above content */
+    top: 0;
+    left: 0;
+    width: 300px;          /* menu width */
+    height: 100vh;         /* full viewport height */
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%); /* start hidden */
+    overflow-y: auto;      /* allow scrolling inside menu if content tall */
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+/* responsive */
+.menu-logo{
+    visibility: hidden;
+    position: absolute;
+}
+.fa-searchs{
+    visibility: hidden;
+}
+/* header */
+
+
+/* Body*/
+
+main {
+    margin-top: 52px; /* To avoid content being hidden behind the fixed header */
+    padding: 0;
+}
+
+
+.image-container .iphone-17 {
+    height: 640px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.iphone-17 {
+    height: 100%;
+    background-image: url(img/iphone17.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;   
+    }
+
+.iphone-17 .title {
+    text-align: center;
+    padding-top: 50px;
+}
+
+
+.iphone-17 .title h1 {
+    font-size: 50px;
+    color: rgba(0, 0, 0, 0.897);
+    font-weight: 700;
+}
+.iphone-17 .title p {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgba(41, 41, 41, 0.89)
+}
+
+ .cta-links {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.image-container .iphone-17-pro {
+    height: 640px;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.iphone-17-pro {
+    height: 90%;
+    min-height: 100%;
+    background-image: url(img/pro17img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.iphone-17-pro .cta-links {
+    text-align: center;
+    padding-top: 550px;
+    
+}
+/* Add smooth zoom effect to both images */
+.iphone-17,
+.iphone-17-pro {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-origin: center;
+}
+
+.iphone-17:hover,
+.iphone-17-pro:hover {
+  transform: scale(1.05); /* slight zoom */
+  filter: brightness(1.05);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); /* subtle depth */
+  cursor: pointer;
+}
+
+.image-container .fitness {
+    height: 500px;
+    width: 100%;
+    padding-top: 0%;
+    flex: auto;
+    
+}
+
+.fitness {
+    height: 90%;
+    min-height: 100%;
+    background-image: url(img/apple-fitness.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 00px;
+}
+
+/*  Hover effect */
+.fitness:hover {
+  transform: scale(1.05); /* Slight zoom */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); /* Nice depth effect */
+}
+.title .hello {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 80px;
+    color: rgba(0, 0, 0, 0.897);
+    font-weight: 700;
+}
+
+ .title .A {
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    margin-top: 15px;
+    color: rgba(0, 0, 0, 0.87)
+    
+}
+
+.fitness .cta-links {
+    text-align: center;
+}
+
+/* main */
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+  li {
+    color: white;
+    height: 770px;
+  }
+  ul li{
+      margin-bottom: 5px;
+  }
+
+  .flex-list{
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .flex-list li{
+      flex: auto;
+      width: 50%;
+  }
+  .img{
+      margin: 0 auto;
+      width: 100%;
+  }
+  .headline{
+      margin-top: 0;
+      margin-bottom: 10px;
+  }
+  .content{
+      overflow: hidden;
+  }
+  /* main themes content */
+  .theme-dark{
+    background-color: #000;
+    margin: 0 auto;
+  }
+.theme-light img {
+  display: block;
+  max-width: 100%; 
+  width: 90%;       
+  margin: 0 auto;  
+  height: auto;     
+  object-fit: contain; 
+}
+
+  .container-main{
+    width: 98%;
+    height: 100%;
+  }
+
+  ul li img{
+      width: 100%;
+  }
+
+  /* Common CTA Style */
+.cta-links a {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 50px; /* ✅ Makes button round */
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+/* Primary CTA (Blue Button with White Text) */
+.cta-links a.primary {
+  background-color: #007bff; /* ✅ Blue background */
+  color: white;
+}
+
+/* Hover stays blue but slightly darker for primary */
+.cta-links a.primary:hover {
+  background-color: #0056b3; /* ✅ Darker blue on hover */
+}
+
+/* Secondary CTA (Outline Button) */
+.cta-links a.secondary {
+  background-color: transparent;
+  color: #007bff; /* ✅ Blue text */
+  border: 2px solid #007bff; /* ✅ Blue border */
+}
+
+/* Hover: Turns Blue with White Text */
+.cta-links a.secondary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+  
+  /* hover zoom products animation */
+  .unit-image figure img{
+      transition: transform .2s;
+  }
+  .unit-image figure img:hover{
+      transform: scale(1.05);
+  }
+  .apple-watch-logo{
+    width: 25%;
+}
+/* main */
+
+
+  /* css footer */
+
+  footer {
+      background-color: #f5f5f7;
+      padding: 40px;
+      height: 1000px;
+      color: #1d1d1f;
+  }
+
+  .logo-footer {
+      width: 50px;
+      margin-bottom: 10px;
+  }
+
+  .txt-copy {
+      margin: 0;
+  }
+
+  .txt-copy a {
+      color: #fff;
+  }
+
+  .txt-copy a:hover {
+      text-decoration: underline;
+  }
+  .footer-container{
+      display: flex;
+  }
+  .footer-list {
+      float: left;
+      width: 30%;
+      margin: 0 auto;
+      
+  }
+
+  .footer-list p a {
+      color: #1d1d1f;
+  }
+
+  .footer-list p a:hover {
+      text-decoration: underline;
+  }
+
+  .clear-footer {
+      clear: left;
+  }
+  .foot-notes ul li{
+      color: #86868b;
+      height: 2em;
+      margin: 10px 0;
+      text-align: left;
+  }
+  .footer-container, .footer-list-container{
+      width: 70%;
+      margin: 0 auto;
+  }
+  
+.footer-copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5; /* optional */
+    width: 100%;
+    margin-top: 50px;
+    
+}
+
+.logo-footer {
+    width: 50px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo-footer:hover {
+    transform: scale(1.1); /* small zoom effect on hover */
+}
+
+.txt-copy {
+    font-size: 14px;
+    color: #555;
+}
+
+.txt-copy a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* footer */
+
