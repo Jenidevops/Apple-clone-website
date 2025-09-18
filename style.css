@@ -276,7 +276,7 @@ main {
 
 
 .image-container .iphone-17 {
-    height: 640px;
+    height: 950px;
     width: 100%;
     margin-bottom: 20px;
     padding-top: 20px;
@@ -285,14 +285,14 @@ main {
 .iphone-17 {
     height: 100%;
     background-image: url(img/iphone17.png);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;   
     }
 
 .iphone-17 .title {
     text-align: center;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 
@@ -330,7 +330,7 @@ main {
 
 .iphone-17-pro .cta-links {
     text-align: center;
-    padding-top: 550px;
+    padding-top: 400px;
     
 }
 /* Add smooth zoom effect to both images */
